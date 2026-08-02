@@ -28,9 +28,7 @@ export default function RootLayout({
   
   const buttons = [
     {text: "Inicio", href: "/"},
-    {text: "Lista", href: "/caminhao"}, 
-    {text: "Adicionar", href: "/caminhao/add"},
-    {text: "--Rotas--", href: "/caminhao/rotas"},
+    {text: "Mapa", href: "/mapa"}
   ]
   return (
     <div className="h-screen w-screen flex flex-row items-center">
