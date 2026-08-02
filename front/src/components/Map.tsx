@@ -1,4 +1,4 @@
-import { MapContainer, Marker, TileLayer, Tooltip } from "react-leaflet"
+import { MapContainer, Marker, TileLayer, Tooltip, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import "leaflet-defaulticon-compatibility"
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css"
@@ -11,10 +11,15 @@ export default function Map(props: any) {
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
-    {/* <Marker position={position}>
+    <Marker position={[-6.439378, -37.084235]}>
       <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
+        Placa: 12345A <br /> Motorista: Juninho
       </Popup>
-    </Marker> */}
+    </Marker>
+    <Marker position={[-6.453619, -37.094212]}>
+      <Popup>
+        Placa: 12345B <br /> Motorista: Cleiton
+      </Popup>
+    </Marker>
   </MapContainer>
 }
