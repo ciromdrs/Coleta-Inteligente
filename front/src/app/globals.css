@@ -3,19 +3,37 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --foreground2: #303030;
+  --foreground3: #404040;
+  --background2: #cccccc;
+  --background3: #9f9f9f;
+  --botaoedit: var(--color-yellow-500);
+  --botaoapagar: var(--color-red-600);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-background2: var(--background2);
+  --color-background3: var(--background3);
+  --color-foreground2: var(--background3);
+  --color-foreground3: var(--background3);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-botaoedit: var(--botaoedit);
+  --color-botaoapagar: var(--botaoapagar);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --foreground2: #ccc;
+    --foreground3: #9f9f9f;
+    --background2: #1f1f1f;
+    --background3: #2a2a2a;
+    --botaoedit: var(--color-yellow-600);
+    --botaoapagar: var(--color-red-500);
   }
 }
 
@@ -23,4 +41,5 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
 }

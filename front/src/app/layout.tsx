@@ -22,6 +22,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const buttons = [
+    {text: "Mapa", href: "/mapa"},
+    {text: "Caminhões", href: "/caminhao"}
+  ]
   return (
     <html
       lang="en"

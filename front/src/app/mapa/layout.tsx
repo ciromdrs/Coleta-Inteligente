@@ -4,7 +4,6 @@ import "../globals.css";
 import SideBar from "@/components/Sidebar"; 
 import Button from "@/components/Button";
 import Link from "next/link";
-import clsx from "clsx";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,21 +28,14 @@ export default function RootLayout({
   
   const buttons = [
     {text: "Inicio", href: "/"},
-    {text: "Lista", href: "/caminhao"}, 
-    {text: "Adicionar", href: "/caminhao/add"},
-    {text: "--Rotas--", href: "/caminhao/rotas", state: "no"},
+    {text: "Mapa", href: "/mapa"}
   ]
   return (
     <div className="h-screen w-screen flex flex-row items-center">
       <SideBar>
         {
         buttons.map((el, ind) => (
-            <Link href={el.href} key={ind} 
-            className={
-              clsx({
-                'cursor-not-allowed': el.state === "no",
-              })}
-            >
+            <Link href={el.href} key={ind}>
                 <Button>
                     {el.text}
                 </Button>
