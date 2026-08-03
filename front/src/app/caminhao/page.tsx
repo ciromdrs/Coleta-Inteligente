@@ -52,9 +52,9 @@ export default function Page() {
                             <h1 className="font-bold">Placa: {el.placa}</h1>
                             <h3>Motorista: {el.motorista}</h3>
                         </div>
-                        <div className="flex flex-row justify-between opacity-70 font-bold">
-                            <div className="flex items-center justify-center rounded hover:cursor-pointer text-2xl bg-red-500 w-9 h-9 ">X</div>
-                            <div className="flex items-center justify-center rounded hover:cursor-pointer text-2xl bg-yellow-600 w-9 h-9 ">🖉</div>
+                        <div className="flex flex-row justify-between font-bold">
+                            <div className="flex items-center justify-center rounded hover:cursor-pointer text-2xl bg-botaoapagar w-9 h-9 ">X</div>
+                            <div className="flex items-center justify-center rounded hover:cursor-pointer text-2xl bg-botaoedit w-9 h-9 ">🖉</div>
                         </div>
                     </div>
                 ))}
