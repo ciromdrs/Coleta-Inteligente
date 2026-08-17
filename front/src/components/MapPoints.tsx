@@ -35,7 +35,7 @@ export default function MapPoints(props: any) {
         undoLastPoint()
       }
     }
-
+    
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [])

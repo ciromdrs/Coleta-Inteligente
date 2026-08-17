@@ -31,7 +31,7 @@ export default function RootLayout({
     {text: "Inicio", href: "/"},
     {text: "Lista", href: "/caminhao"}, 
     {text: "Adicionar", href: "/caminhao/add"},
-    {text: "--Rotas--", href: "/caminhao/rotas", state: "no"},
+    {text: "--Rotas--", href: "/caminhao/rotas", state: "yes"},
   ]
   return (
     <div className="h-screen w-screen flex flex-row items-center">

@@ -1,5 +1,3 @@
-'use client'
-
 import MapPoints from "@/components/MapPoints"
 
 export default function Page() {
