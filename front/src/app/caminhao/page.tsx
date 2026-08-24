@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import getTrucksList from "./action"
+import Link from "next/link"
 
 export default function Page() {
     const [trucks, setTrucks] = useState<{id: number, plate: string}[]>([])
@@ -27,7 +28,7 @@ export default function Page() {
                         </div>
                         <div className="flex flex-row justify-between font-bold">
                             <div className="flex items-center justify-center rounded hover:cursor-pointer text-2xl bg-botaoapagar w-9 h-9 ">X</div>
-                            <div className="flex items-center justify-center rounded hover:cursor-pointer text-2xl bg-botaoedit w-9 h-9 ">🖉</div>
+                            <Link href={`/caminhao/update?id=${el.id}`}><div className="flex items-center justify-center rounded hover:cursor-pointer text-2xl bg-botaoedit w-9 h-9 ">🖉</div></Link>
                         </div>
                     </div>
                 ))}
