@@ -5,6 +5,7 @@ import "leaflet/dist/leaflet.css"
 import "leaflet-defaulticon-compatibility"
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css"
 import { useEffect, useState } from "react"
+import { addRoute } from "@/lib/db"
 
 function HandleClick({onMapClick}: { onMapClick: (lat: number, lng: number) => void}) {
       useMapEvents({
@@ -39,6 +40,18 @@ export default function MapPoints(props: any) {
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [])
+
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if((e.ctrlKey || e.metaKey) && e.key == 'Enter') {
+        e.preventDefault()
+        addRoute(points)
+      }
+    }
+    
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [points])
 
   return <MapContainer className="w-full h-full" center={position} zoom={zoom} scrollWheelZoom={false}>
     <TileLayer

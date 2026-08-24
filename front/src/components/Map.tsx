@@ -2,7 +2,7 @@ import { MapContainer, Marker, TileLayer, Tooltip, Popup, Polyline, useMapEvents
 import "leaflet/dist/leaflet.css"
 import "leaflet-defaulticon-compatibility"
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css"
-import { icon, LatLng, LatLngExpression } from "leaflet"
+import { icon, LatLngExpression } from "leaflet"
 import { useState } from "react"
 
 function LocationFinder() {
@@ -23,7 +23,7 @@ function LocationFinder() {
 }
 
 export default function Map(props: any) {
-  const { position, zoom } = props
+  const { position, zoom, routes } = props
 
   const points: [number, number][] = [
     [
@@ -138,6 +138,9 @@ export default function Map(props: any) {
     <Marker position={[-6.453619, -37.094212]} icon={icon({iconUrl: "garbage.svg", iconAnchor: [13,13], iconSize: [30,30]})}>
     </Marker>
     <Polyline positions={points} />
+    {routes.map((route: {id: number, points: string}, index: number) => (
+      <Polyline key={index} positions={JSON.parse(route.points)} />
+    ))}
     <LocationFinder />
   </MapContainer>
 }
