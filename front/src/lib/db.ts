@@ -75,3 +75,7 @@ export async function deleteRoute(id: number) {
         return {message: "error trying to delete item"}
     }
 }
+
+export async function getTruck(id: number) {
+    return await db.select().from(truckTable).where(eq(truckTable.id, id))
+}

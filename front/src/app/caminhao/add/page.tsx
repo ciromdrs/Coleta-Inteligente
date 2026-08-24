@@ -3,7 +3,6 @@
 import { addTruck } from "@/lib/db"
 
 export default function Page() {
-
     async function handleSubmit(formData: FormData) {
         const res = await addTruck(formData.get('plate')!)
     }
