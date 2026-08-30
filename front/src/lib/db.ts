@@ -61,7 +61,7 @@ export async function getRoutes() {
 
 export async function updateRoute(id: number, points: [number,number][]) {
     try {
-        const pointsStr = points.toString()
+        const pointsStr = JSON.stringify(points)
         await db.update(routeTable).set({points: pointsStr}).where(eq(routeTable.id, id))
     } catch (error) {
         return {message: "error trying to update item"}
@@ -78,4 +78,8 @@ export async function deleteRoute(id: number) {
 
 export async function getTruck(id: number) {
     return await db.select().from(truckTable).where(eq(truckTable.id, id))
+}
+
+export async function getRoute(id: number) {
+    return await db.select().from(routeTable).where(eq(routeTable.id, id))
 }
