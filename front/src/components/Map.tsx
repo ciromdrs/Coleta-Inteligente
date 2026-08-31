@@ -2,8 +2,9 @@ import { MapContainer, Marker, TileLayer, Tooltip, Popup, Polyline, useMapEvents
 import "leaflet/dist/leaflet.css"
 import "leaflet-defaulticon-compatibility"
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css"
-import { icon, LatLngExpression } from "leaflet"
+import { icon, LatLng, LatLngExpression, marker } from "leaflet"
 import { useState } from "react"
+import Truck from "@/components/Truck"
 
 function LocationFinder() {
   const [position, setPosition] = useState<LatLngExpression>([0,0])
@@ -22,10 +23,10 @@ function LocationFinder() {
   )
 }
 
-export default function Map(props: any) {
-  const { position, zoom, routes } = props
-
-  const points: [number, number][] = [
+const garbageIcon = icon({iconUrl: "garbage.svg", iconAnchor: [13,13], iconSize: [30,30]})
+const truck1 = {
+  color: "#ff0000",
+  points: [
     [
       -6.458620397372949,
       -37.096602916717536
@@ -127,20 +128,33 @@ export default function Map(props: any) {
       -37.096608281135566
     ]
   ]
+}
+
+const truck2 = {
+  color: "#0000ff",
+  points: [
+    [
+      -6.458120397372949,
+      -37.096102916717536
+    ],
+    [
+      -6.451405071106426,
+      -37.09519399871827
+    ],
+  ]
+}
+export default function Map(props: any) {
+  const { position, zoom } = props
 
   return <MapContainer className="w-full h-full" center={position} zoom={zoom} scrollWheelZoom={false}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
-    <Marker position={[-6.439378, -37.084235]} icon={icon({iconUrl: "garbage.svg", iconAnchor: [13,13], iconSize: [30,30]})}>
-    </Marker>
-    <Marker position={[-6.453619, -37.094212]} icon={icon({iconUrl: "garbage.svg", iconAnchor: [13,13], iconSize: [30,30]})}>
-    </Marker>
-    <Polyline positions={points} />
-    {routes.map((route: {id: number, points: string}, index: number) => (
-      <Polyline key={index} positions={JSON.parse(route.points)} />
-    ))}
+    <Marker position={[-6.439378, -37.084235]} icon={garbageIcon} />
+    <Marker position={[-6.453619, -37.094212]} icon={garbageIcon} />
+    <Truck points={truck1.points} color={truck1.color} />
+    <Truck points={truck2.points} color={truck2.color} />
     <LocationFinder />
   </MapContainer>
 }
